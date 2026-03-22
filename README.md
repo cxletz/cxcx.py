@@ -51,5 +51,9 @@ Third-party **Bootstrap** assets are vendored under `cdn.jsdelivr.net/` for offl
 
 ## License
 
-No license file is included in this repository. Add one if you intend to distribute or accept contributions on GitHub.
+
+This project is licensed under the **GNU General Public License v3.0** (GPL-3.0). See [`LICENSE`](LICENSE) for the full license text (GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007).
+
+Third-party files (for example vendored **Bootstrap** under `cdn.jsdelivr.net/`) remain under their respective licenses.
+
 
