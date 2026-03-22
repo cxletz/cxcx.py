@@ -4,7 +4,7 @@ A browser-based practice environment for Python certification–style questions.
 
 ## How to use
 
-1. Visit [https://cxletz.github.io/](https://cxletz.github.io/) to use the hosted version in your browser.
+1. Visit [https://cxletz.github.io/cxcx.py](https://cxletz.github.io/cxcx.py) to use the hosted version in your browser.
 
 To run or develop from this repository instead, see **How to run** below.
 
@@ -52,3 +52,4 @@ Third-party **Bootstrap** assets are vendored under `cdn.jsdelivr.net/` for offl
 ## License
 
 No license file is included in this repository. Add one if you intend to distribute or accept contributions on GitHub.
+
