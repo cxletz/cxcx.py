@@ -37,6 +37,7 @@
           ev.preventDefault();
           var data = ev.dataTransfer.getData("text");
           ev.target.appendChild(document.getElementById(data));
+          saveCurrentPage();
         }
         </script>
     <title>PYTHON</title>
@@ -52,15 +53,8 @@
                 <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
                 <a href="q3.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
                 <a href="q5.html" class="btn btn-success" role="button" > NEXT >></a>
-            </p>
-            <hr>
-<p class="exam-exam-toolbar d-inline-flex gap-2 flex-wrap align-items-center mb-2">
-  <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button>
-</p>
-<div id="exam-results-panel" class="exam-results-panel" hidden></div>
-
-            
-            <br>You are writing a Python program that evaluates an arithmetic formula
+             <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button></p>            <hr>
+<br>You are writing a Python program that evaluates an arithmetic formula
             <br>The formula is described as <code>b</code> equals <code>a</code> multiplied by negative one, then to the second power, where <code>a</code> is the value that will be input and <code>b</code> is the result.
             <br>You create the following segment. Line numbers are included for reference only.
 

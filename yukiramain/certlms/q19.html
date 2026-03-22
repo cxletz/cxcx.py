@@ -41,6 +41,7 @@
           ev.preventDefault();
           var data = ev.dataTransfer.getData("text");
           ev.target.appendChild(document.getElementById(data));
+          saveCurrentPage();
         }
         </script>
     <title>PYTHON</title>
@@ -56,15 +57,8 @@
                 <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
                 <a href="q18.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
                 <a href="q20.html" class="btn btn-success" role="button" > NEXT >></a>
-            </p>
-            <hr>
-<p class="exam-exam-toolbar d-inline-flex gap-2 flex-wrap align-items-center mb-2">
-  <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button>
-</p>
-<div id="exam-results-panel" class="exam-results-panel" hidden></div>
-
-            
-            <p>You need to write code that performs the following task</p>
+             <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button></p>            <hr>
+<p>You need to write code that performs the following task</p>
             <ul>
                 <li>
                     Call the <code>process()</code>  function

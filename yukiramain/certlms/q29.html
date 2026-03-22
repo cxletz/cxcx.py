@@ -54,6 +54,7 @@
           ev.preventDefault();
           var data = ev.dataTransfer.getData("text");
           ev.target.appendChild(document.getElementById(data));
+          saveCurrentPage();
         }
         </script>
     <title>PYTHON</title>
@@ -69,15 +70,8 @@
                 <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
                 <a href="q28.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
                 <a href="q30.html" class="btn btn-success" role="button" > NEXT >></a>
-            </p>
-            <hr>
-<p class="exam-exam-toolbar d-inline-flex gap-2 flex-wrap align-items-center mb-2">
-  <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button>
-</p>
-<div id="exam-results-panel" class="exam-results-panel" hidden></div>
-
-            
-           <p>You are writing a function that works with files.</p>
+             <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button></p>            <hr>
+<p>You are writing a function that works with files.</p>
            <p>You need to ensure that the function return <code>None</code> if the file does not exist the function 
             must return the first line.</p>
             <p>You write the following code.</p>

@@ -61,6 +61,7 @@
           ev.preventDefault();
           var data = ev.dataTransfer.getData("text");
           ev.target.appendChild(document.getElementById(data));
+          saveCurrentPage();
         }
         </script>
     <title>PYTHON</title>
@@ -75,16 +76,8 @@
                 <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
                 <a href="q35.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
                 <a href="q37.html" class="btn btn-success" role="button" > NEXT >></a>
-            </p>
-            <hr>
-<p class="exam-exam-toolbar d-inline-flex gap-2 flex-wrap align-items-center mb-2">
-  <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button>
-</p>
-<div id="exam-results-panel" class="exam-results-panel" hidden></div>
-    
-            
-            
-           <p>You are writing a Python function that must perform the following tasks</p>
+             <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button></p>            <hr>
+<p>You are writing a Python function that must perform the following tasks</p>
            <ul>
             <li>Accept a list and a string as parameters.</li>
             <li>Search for the string in the list</li>

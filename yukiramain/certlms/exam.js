@@ -167,8 +167,51 @@
     });
   }
 
+  function serializeDragDrop(root) {
+    var parts = [];
+    // Assume drop zones are div1, div2, div3, div4, div5
+    for (var i = 1; i <= 5; i++) {
+      var div = root.querySelector('#div' + i);
+      if (div) {
+        var button = div.querySelector('button');
+        parts.push(button ? normalize(button.textContent) : "");
+      } else {
+        parts.push("");
+      }
+    }
+    // Trim trailing empty strings
+    while (parts.length > 0 && parts[parts.length - 1] === "") {
+      parts.pop();
+    }
+    return parts;
+  }
+
+  function applyDragDrop(root, values) {
+    var i = 0;
+    var sourceDiv = root.querySelector('#div0');
+    if (!sourceDiv) return;
+    for (var j = 1; j <= 5; j++) {
+      var div = root.querySelector('#div' + j);
+      if (div) {
+        // Clear existing content
+        div.innerHTML = '';
+        if (values[i]) {
+          // Find the button in sourceDiv with matching text
+          var buttons = sourceDiv.querySelectorAll('button');
+          for (var k = 0; k < buttons.length; k++) {
+            if (normalize(buttons[k].textContent) === normalize(values[i])) {
+              div.appendChild(buttons[k]);
+              break;
+            }
+          }
+        }
+      }
+      i++;
+    }
+  }
+
   /**
-   * Order: selects → radio groups → checkbox aggregate → text inputs.
+   * Order: selects → radio groups → checkbox aggregate → text inputs → drag-drop.
    * Must match answer-key.js arrays.
    */
   function collectPageState() {
@@ -184,6 +227,9 @@
       out.push(x);
     });
     serializeTextInputs(root).forEach(function (x) {
+      out.push(x);
+    });
+    serializeDragDrop(root).forEach(function (x) {
       out.push(x);
     });
     return out;
@@ -213,7 +259,11 @@
     applyCheckboxes(root, cbVals);
 
     var txtVals = values.slice(i, i + txtCount);
+    i += txtCount;
     applyTextInputs(root, txtVals);
+
+    var dragVals = values.slice(i, i + 5); // Assuming 5 drop zones
+    applyDragDrop(root, dragVals);
   }
 
   function saveCurrentPage() {
@@ -310,51 +360,49 @@
     };
   }
 
-  function renderResults(score, total, rows) {
-    var panel = document.getElementById("exam-results-panel");
-    if (!panel) return;
-
-    var pct = total > 0 ? Math.round((score / total) * 1000) / 10 : 0;
-    var html = "";
-    html +=
-      '<h3>Exam results</h3><div class="exam-score-summary">Score: ' +
-      score +
-      " / " +
-      total +
-      " (" +
-      pct +
-      "%)</div>";
-    html += '<table class="exam-results-table"><thead><tr>';
-    html +=
-      "<th>Question</th><th>Status</th><th>Detail</th></tr></thead><tbody>";
-
-    rows.forEach(function (r) {
-      var rowClass = "exam-result-row--nokey";
-      if (r.rowKind === "correct") rowClass = "exam-result-row--correct";
-      else if (r.rowKind === "incorrect") rowClass = "exam-result-row--incorrect";
-      else if (r.rowKind === "partial") rowClass = "exam-result-row--partial";
-      else if (r.rowKind === "empty") rowClass = "exam-result-row--empty";
-
-      html += '<tr class="' + rowClass + '">';
-      html += "<td><b>" + r.qid + "</b></td>";
-      html += "<td>" + r.label + "</td>";
-      html += "<td>" + r.detail + "</td>";
-      html += "</tr>";
-    });
-
-    html += "</tbody></table>";
-    html +=
-      '<div class="exam-retake-wrap"><button type="button" id="exam-retake-btn" class="btn btn-warning">Retake Exam</button></div>';
-    panel.innerHTML = html;
-    panel.hidden = false;
-    panel.scrollIntoView({ behavior: "smooth", block: "start" });
-
-    var retake = document.getElementById("exam-retake-btn");
-    if (retake) {
-      retake.addEventListener("click", function () {
-        retakeExam();
-      });
+  function getOptionLetters(value) {
+    if (value === null || value === undefined || value === "") return "(none)";
+    var text = String(value);
+    var parts = text.split(",").map(function (p) { return p.trim(); }).filter(function (p) { return p !== ""; });
+    if (parts.length === 0) return "(none)";
+    if (!parts.every(function (p) { return /^\d+$/.test(p); })) {
+      return text;
     }
+    return parts
+      .map(function (p) {
+        var idx = parseInt(p, 10);
+        return idx >= 0 ? String.fromCharCode(65 + idx) : "?";
+      })
+      .join(",");
+  }
+
+  function formatAnswerValue(qid, value) {
+    if (value === null || value === undefined || value === "") return "(none)";
+    var text = String(value);
+    if (qid === "q6" && /^(?:0|1)$/.test(text)) {
+      return text === "0" ? "True" : "False";
+    }
+    if (/^\d+(?:,\d+)*$/.test(text)) {
+      var letters = getOptionLetters(text);
+      if (letters !== "(none)") {
+        return letters + " (" + text + ")";
+      }
+    }
+    return text;
+  }
+
+  function storeAndNavigateToResults(score, total, rows) {
+    var resultsData = {
+      score: score,
+      total: total,
+      rows: rows
+    };
+    try {
+      sessionStorage.setItem("python-cert-exam-results", JSON.stringify(resultsData));
+    } catch (e) {
+      console.warn("Exam: could not save results to sessionStorage", e);
+    }
+    window.location.href = "exam-results.html";
   }
 
   function finishExam() {
@@ -422,6 +470,8 @@
             );
           }
           var span = p.ok ? "exam-part-line--ok" : "exam-part-line--bad";
+          var actualText = formatAnswerValue(qid, p.actual);
+          var expectedText = formatAnswerValue(qid, p.expected);
           return (
             '<div class="exam-part-detail ' +
             span +
@@ -430,9 +480,9 @@
             ": " +
             (p.ok ? "Correct" : "Incorrect") +
             " — yours: <code>" +
-            escapeHtml(String(p.actual)) +
+            escapeHtml(actualText) +
             "</code> (expected: <code>" +
-            escapeHtml(String(p.expected)) +
+            escapeHtml(expectedText) +
             "</code>)</div>"
           );
         })
@@ -465,7 +515,7 @@
       });
     }
 
-    renderResults(score, total, rows);
+    storeAndNavigateToResults(score, total, rows);
   }
 
   function escapeHtml(s) {
@@ -479,18 +529,14 @@
   function retakeExam() {
     if (
       !confirm(
-        "Clear all saved answers for this exam in this browser and reset this page?"
+        "Clear all saved answers for this exam in this browser and start over?"
       )
     ) {
       return;
     }
     localStorage.removeItem(STORAGE_KEY);
-    var panel = document.getElementById("exam-results-panel");
-    if (panel) {
-      panel.innerHTML = "";
-      panel.hidden = true;
-    }
-    resetCurrentPageControls();
+    sessionStorage.removeItem("python-cert-exam-results");
+    window.location.href = "main.html";
   }
 
   function bindEvents() {
@@ -520,4 +566,7 @@
   } else {
     init();
   }
+
+  // Expose functions for drag-drop pages
+  window.saveCurrentPage = saveCurrentPage;
 })();
