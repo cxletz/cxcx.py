@@ -1,0 +1,425 @@
+﻿Python Exam Questions and Answers
+Question 1
+Question: Evaluate the code and answer the questions.
+numList = [1, 2, 3, 4, 5]
+alphaList = ["a", "b", "c", "d", "e"]
+print(numList is alphaList)
+print(numList == alphaList)
+numList = alphaList
+print(numList is alphaList)
+print(numList == alphaList)
+
+Answers:
+* What is displayed after the first print? False
+* What is displayed after the second print? False
+* What is displayed after the third print? True
+* What is displayed after the fourth print? True
+Question 2
+Question: Complete the code to calculate DVD rentals.
+Answer:
+# DVD Rental Calculator
+ontime = input("Was the video returned before 8 PM? Y or N").lower()
+days_rented = int(input("How may days was the video rented"))
+weekday = input("What day was the video rented?").capitalize()
+
+cost_per_day = 1.59
+if ontime == 'n':
+   days_rented += 1
+
+if weekday == "Sunday":
+   total = (days_rented * cost_per_day) * 0.7
+elif weekday == "Thursday":
+   total = (days_rented * cost_per_day) * 0.5
+else:
+   total = (days_rented * cost_per_day)
+
+print("Cost of the DVD is: $", total)
+
+Question 3
+Question: Which code should you write at line 2 to accept user input and print it on line 3?
+01 print("What is your name?")
+02 
+03 print(name)
+
+Answer:
+B. name = input()
+Question 4
+Question: Complete the code to evaluate the formula   .
+01 a = eval(input("Enter a number for the equation: "))
+02 b = _________
+
+Answer:
+b = (a * -1) ** 2
+Question 5
+Question: Complete the code to output comma-delimited data with enclosed strings in double-quotes.
+01 item = input("Enter the item name: ")
+02 sales = input("Enter the quantity: ")
+
+Answer:
+D. print('"{0}", {1}'.format(item, sales))
+Question 6
+Question: Evaluate the statements about the petStore function as True or False.
+Answers:
+* The function returns a value: False (It only prints)
+* The function calls at lines 14 and 17 are valid: True
+* The function calls at lines 16 and 18 will result in an error: False
+Question 7
+Question: Complete the code to compute roots safely based on positive/negative and even/odd rules.
+Answer:
+def safe_root(a, b):
+   if a >= 0:
+       answer = a ** (1/b)
+   else:
+       if a % 2 == 0:
+           answer = "Result is an imaginary number"
+       else:
+           answer = -(-a) ** (1/b)
+   return answer
+
+Question 8
+Question: Iterate through a list and escape when it finds a specific product ID (6).
+Answer:
+productIdList = [8, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+index = 0
+while (index < 10):
+   print(productIdList[index])
+   if productIdList[index] == 6:
+       break
+   else:
+       index += 1
+
+Question 9
+Question: Complete the decision structure to convert student's numeric grades to letter grades.
+Answer:
+# Letter Grade converter
+grade = int(input("Enter a numeric grade"))
+if grade >= 90:
+   letter_grade = 'A'
+elif grade >= 80:
+   letter_grade = 'B'
+elif grade >= 70:
+   letter_grade = 'C'
+elif grade >= 65:
+   letter_grade = 'D'
+else:
+   letter_grade = 'F'
+print("Your letter grade is", letter_grade)
+
+Question 10
+Question: Which code should you write for line 05 and line 06 to skip blank lines?
+Answer:
+05 if line != '\n':
+06     print(line)
+
+Question 11
+Question: Evaluate statements about the calc_power(a, b) script.
+Answers:
+* Line 02 will cause a runtime error: False
+* Line 06 will cause a runtime error: True (Cannot concatenate string and float/int directly)
+* The eval function should be used in lines 03 and 04: True (To convert input strings to numbers)
+Question 12
+Question: Select the appropriate code segments to return a letter grade.
+Answer:
+if grade <= 100 and grade >= 90:
+   print("Your grade is A.")
+elif grade <= 89 and grade >= 80:
+   print("Your grade is B.")
+elif grade <= 79 and grade >= 70:
+   print("Your grade is C.")
+else:
+   print("Failed")
+
+Question 13
+Question: Which two math functions should you use to take the absolute value of a float and remove decimal points?
+Answers:
+* A. math.floor(x) (or math.trunc)
+* D. math.fabs(x)
+Question 14
+Question: Which code segment should you use to open a file for reading/writing, create it if it doesn't exist, and delete its content if it does?
+Answer:
+D. open("local_data", "w+")
+Question 15
+Question: Answer questions about documenting Python code.
+Answers:
+* Which character(s) signal the beginning and ending of docstrings? triple double quote (""")
+* Standard location for docstrings? Immediately after the function header
+* Which command will print the docstring? print(cube.__doc__)
+Question 16
+Question: Complete the code for safe division.
+Answer:
+def safe_divide(numerator, denominator):
+   if numerator is None or denominator is None:
+       print("A required value is missing.")
+   elif denominator == 0:
+       print("The denominator is zero.")
+   else:
+       return numerator / denominator
+
+Question 17
+Question: What is the output of '{:%B-%d-%y}'.format(d) for April 7, 2017?
+Answer:
+D. April-07-17
+Question 18
+Question: Which two function calls are correct for roomAssignment(student, year)?
+Answers:
+* A. roomAssignment(name, year = grade)
+* C. roomAssignment("Sherlock Sassafrass", 4)
+Question 19
+Question: Arrange the exception handling blocks.
+Answer:
+try:
+   process()
+except:
+   logError()
+finally:
+   displayResult()
+
+Question 20
+Question: Which two functions generate a random integer from 5 to 11?
+Answers:
+* A. random.randint(5, 11)
+* D. random.randrange(5, 12, 1)
+Question 21
+Question: Which documentation syntax is correct for a function?
+Answer:
+C. ```python
+def get_balance():
+""" Returns the current balance of the bank account """
+return balance
+---
+
+### Question 22
+**Question:** Which two code segments truncate the decimal portion of the average balance?
+**Answers:**
+* **A. `average_balance = int(total_deposits / number_of_customers)`**
+* **D. `average_balance = total_deposits // number_of_customers`**
+
+---
+
+### Question 23
+**Question:** Complete the code to display times tables from 2 to 12.
+**Answer:**
+```python
+def times_tables():
+   for col in range(2, 13):
+       for row in range(2, 13):
+           print(row * col, end=" ")
+       print()
+
+Question 24
+Question: What is the output value of list_3 * 3 where list_3 = [1, 2, 3, 4]?
+Answer:
+C. [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]
+Question 25
+Question: What is displayed after the print statements?
+a = 'Config1'
+b = a
+a += 'Config2'
+
+Answers:
+* After second print (print(a)): Config1Config2
+* After third print (print(b)): Config1
+Question 26
+Question: Complete the string format statement for alignment.
+Answer:
+"{0:<10} {1:>5.1f} {2:>7.2f}".format(fields[0], eval(fields[1]), eval(fields[2]))
+Question 27
+Question: How should you correct lines 03 and 06?
+Answers:
+* Line 03: while index < 10:
+* Line 06: if numbers[index] == 6:
+Question 28
+Question: Complete the code to count characters in words entered by the user.
+Answer:
+x = input("Enter a new word or QUIT to exit: ")
+while x != "QUIT":
+   num = 0
+   for char in x:
+       num += 1
+   print(num)
+   x = input("Enter a new word or QUIT to exit: ")
+
+Question 29
+Question: Arrange code to return the first line of a file, or None if it doesn't exist.
+Answer:
+if os.path.isfile(filename):
+   with open(filename, 'r') as file:
+       return file.readline()
+else:
+   return None
+
+Question 30
+Question: Complete the lines to use the datetime module properly.
+Answers:
+* Line 04: now = datetime.datetime.now()
+* Line 05: today = now.strftime("%A")
+* Line 15: daysLeft = 6 - now.weekday()
+Question 31
+Question: Evaluate try statement rules as True or False.
+Answers:
+* A try statement can have one or more except clauses: True
+* A try statement can have a finally clause without an except clause: True
+* A try statement can have a finally clause and an except clause: True
+* A try statement can have one or more finally clauses: False
+Question 32
+Question: Troubleshoot the dictionary lookup program.
+Answers:
+* Data types stored in the rooms list: int and string
+* Data type of room at line 02: string
+* Why does line 03 fail?: Mismatched data types (dictionary keys are integers, input is a string)
+Question 33
+Question: Complete the statements about assert methods.
+Answers:
+* To test that values of variables a and b are the same use: assertEqual(a, b)
+* To test that objects a and b are the same use: assertIs(a, b)
+* To test whether a value exists in a list use: assertIn(a, b)
+Question 34
+Question: Complete the loops to print an 'E' shape.
+Answer:
+for row in range(1, 6):
+   for column in range(1, 5):
+       if (row == 1 or row == 3 or row == 5):
+           result_str = result_str + "*"
+       elif column == 1:
+           result_str = result_str + "*"
+
+Question 35
+Question: Arrange the code segments to search for a string in a list.
+Answer:
+def search(items, term):
+   for i in range(len(items)):
+       if items[i] == term:
+           print("{0} was found in the list.".format(term))
+           break
+   else:
+       print("{0} was not found in the list.".format(term))
+
+Question 36
+Question: Evaluate statements about default parameter values.
+Answers:
+* To meet requirements, change line 01 to def increment_score(score, bonus, points=1): : True
+* After any parameter is defined with a default, all to the right must also be defined with defaults: True
+* If called with 2 parameters, the value of the third is None: False
+* Line 03 will modify the value of points declared at line 06: False
+Question 37
+Question: Complete the interactive survey input code.
+Answer:
+while done != -1:
+   rating = float(input("Enter next rating(1-5, -1 for done)"))
+   if rating == -1:
+       break
+   sum += rating
+   count += 1
+average = float(sum / count)
+
+Question 38
+Question: Complete the number guessing game loop.
+Answer:
+chance = 1
+while chance <= 3:
+   guess = int(input("Guess an integer: "))
+   if guess > target:
+       print("Guess is too high")
+   elif guess < target:
+       print("Guess is too low")
+   else:
+       print("Guess is just right!")
+       break
+   chance += 1
+
+Question 39
+Question: Fix the payroll loop errors.
+Answer:
+for index in range(len(employee_pay)):
+   count += 1
+   sum += employee_pay[index]
+average = sum / count
+
+Question 40
+Question: What is causing the error on os.path.isfile(file)?
+Answer:
+D. You need to import the os library.
+Question 41
+Question: Define the two required functions.
+Answers:
+* A. def get_name():
+* F. def calc_calories(miles, calories_per_mile): (or E with burn_rate depending on local variable names)
+Question 42
+Question: Generate a random number that is a multiple of 5, between 5 and 100.
+Answers:
+* A. print(randint(1, 20) * 5)
+* C. print(randrange(5, 105, 5))
+Question 43
+Question: Complete the code to count words containing a specific letter.
+Answer:
+for word in word_list:
+   if letter in word:
+       count += 1
+
+Question 44
+Question: Evaluate statements about f = open("python.txt", "a").
+Answers:
+* A file named python.txt is created if it does not exist: True
+* The data in the file will be overwritten: False (it appends)
+* Other code can open the file after this code runs (after close()): True
+Question 45
+Question: Arrange the code to display all prime numbers from 2 to 100.
+Answer:
+p = 2
+while p <= 100:
+   is_prime = True
+   for i in range(2, p):
+       if p % i == 0:
+           is_prime = False
+           break
+   if is_prime == True:
+       print(p)
+   p = p + 1
+
+Question 46
+Question: Evaluate the comparison logic statements.
+Answers:
+* Print at line 04 will only print if numbers are equal in value: True
+* Print at line 06 will only print if num1 is less than num2: False (Uses <=, so prints if less than or equal)
+* Print at line 08 will only print if num1 is greater than num2: True
+* Statement at line 09 is an invalid comparison: True (Uses assignment = instead of equality ==)
+Question 47
+Question: Evaluate statements about code comments.
+Answers:
+* Python will not check the syntax of lines 01 through 04: True
+* The pound sign (#) is optional for lines 02 and 03: False
+* The string in line 06 will be interpreted as a comment: False (It is assigned to a variable)
+* Line 07 contains an inline comment: True
+Question 48
+Question: Identify the results of slicing alph = "abcdefghijk...".
+Answers:
+* alph[3:6] -> def
+* alph[:6] -> abcdef
+Question 49
+Question: Complete the file manipulation code to append text.
+Answer:
+file = open('myFile.txt', 'a') (or 'a+' based on available options for appending)
+Question 50
+Question: What value will print given grade = 76, rank = 3 and the provided if-elif-else logic?
+Answer:
+A. 71 (It falls to the else block: 76 - 5 = 71)
+Question 51
+Question: What is the output of python Script.py Cheese Bacon Bread given print(sys.argv[2])?
+Answer:
+C. Bacon (Index 0 is Script.py, 1 is Cheese, 2 is Bacon)
+Question 52
+Question: Complete the conditional to check if two lists are equal.
+Answer:
+if numList == alphaList:
+Question 53
+Question: Complete the try/except block to catch invalid integer conversions.
+Answer:
+except ValueError:
+Question 54
+Question: How many lines of output does the while loop print (starts at n=5, breaks at n=3)?
+Answer:
+2
+Question 55
+Question: Calculate the result of (9 % 4 * 10) // 2.0 ** 3.0 + 4.
+Answer:
+D. The value 5.0 is displayed

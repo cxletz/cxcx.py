@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>PYTHON</title>
+    <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+    <div style="margin: 50px;">
+        <div class="container-fluid">
+            
+            <p class="d-inline-flex gap-1"><b>QUESTION 40</b></p>
+            <br/>
+            <p class="d-inline-flex gap-1">
+                <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
+                <a href="q39.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
+                <a href="q41.html" class="btn btn-success" role="button" > NEXT >></a>
+            </p>
+            <hr>
+<p class="exam-exam-toolbar d-inline-flex gap-2 flex-wrap align-items-center mb-2">
+  <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button>
+</p>
+<div id="exam-results-panel" class="exam-results-panel" hidden></div>
+
+            
+            <div class="row">
+                <div class="col-6">
+                    <p>
+                        A company asks you to debug some code that is causing problems with their payroll. They ask you to find the source of the payroll errors.
+                    </p>
+                    <p>
+                        The following variables have been declared
+                    </p>
+                    <pre><code>
+    employee_pay = [15000, 120000, 35000, 45000]
+    count = 0
+    sum = 0
+                    </code></pre>
+<p>There are two errors in the following code</p>
+<pre><code>
+    for index in range(0, len(employee_pay) - 1):
+        count += 1
+        sum += employee_pay[index]
+    average = sum // count
+    print("The total payroll is: ", sum)
+    print("The average salary is: ", average)
+</code></pre>
+
+                </div>
+        <div class="col-6">
+        <p>Which code should you use to fix the errors?</p>
+        <p>To answer, select the appropriate code segments in the answer area</p>
+        <p>Note: You will receive partial credit for each correct selection</p>
+            <br><br><hr>
+            <b>ANSWER AREA</b>
+            <br>
+            <pre>
+                <code>
+    for index in range <select>
+                        <option></option>
+                        <option>(size(employee_pay)):</option>
+                        <option>(size(employee_pay) - 1):</option>
+                        <option>(len(employee_pay) + 1):</option>
+                        <option>(len(employee_pay)):</option>
+                    </select> 
+        count += 1
+        sum += employee_pay[index]
+    average = <select style="margin-top:5px">
+                            <option></option>
+                            <option>sum / count</option>
+                            <option>sum ** count</option>
+                            <option>sum * count</option>
+                        </select> 
+    print("The total payroll is: ", sum)
+    print("The average salary is: ", average)
+                </code>
+            </pre>
+           
+        </div>
+        <hr>
+        <p class="d-inline-flex gap-1">
+            <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
+            <a href="q39.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
+            <a href="q41.html" class="btn btn-success" role="button" > NEXT >></a>
+        </p>
+        </div>
+    </div>
+</div>
+    <script src="answer-key.js"></script>
+    <script src="exam.js"></script>
+</body>
+</html>

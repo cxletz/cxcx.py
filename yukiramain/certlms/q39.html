@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        code {
+            color: black;
+        }
+      
+    </style>
+    <style>
+         #div0 {
+        width: 600px;
+          height: 150px;
+          padding: 9px;
+          border: 1px solid #4a08ef;
+          /* float: left; */
+          margin-right: 100px;
+          
+        }
+        #div1, #div2, #div3, #div4, #div5 {
+            width: 210px;
+          height: 40px;
+          padding-left: 10px;
+          border: 1px solid #4a08ef;
+          /* float: left; */
+          display: inline-block;
+          margin-right: 5px;
+        }
+        #drag1, #drag2, #drag3, #drag4, #drag5, #drag6, #drag7{
+            width: 180px;
+            margin-top: 5px;
+        } 
+        </style>
+    <script>
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
+        }
+        </script>
+    <title>PYTHON</title>
+    <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+    <div style="margin: 50px;">
+        <div class="container-fluid">
+            
+            <p class="d-inline-flex gap-1"><b>QUESTION 39</b></p>
+            <br/>
+            <p class="d-inline-flex gap-1">
+                <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
+                <a href="q38.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
+                <a href="q40.html" class="btn btn-success" role="button" > NEXT >></a>
+            </p>
+            <hr>
+<p class="exam-exam-toolbar d-inline-flex gap-2 flex-wrap align-items-center mb-2">
+  <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button>
+</p>
+<div id="exam-results-panel" class="exam-results-panel" hidden></div>
+
+            
+            <p>You are creating a Python program that will let a user guess from 1 to 10. The user is allowed up to three guesses. 
+            If the user guesses the correct number, the program must stop asking for guesses.</p>
+            
+            <p>Complete the code by moving the appropriate code segments from the list on the left to the correct locations on the right.
+            You may use each code segment once, more than once</p> 
+           
+            <hr>
+            <br>
+            <table>
+                <tr>
+                    <td width="300px" style="vertical-align: top">
+                        <b>CODE SEGMENTS</b><br><br>
+                        <div id="div0" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <button id="drag1" draggable="true" ondragstart="drag(event)" ><code>break</code></button>
+                            <button id="drag2" draggable="true" ondragstart="drag(event)" ><code>chance += 1</code></button>
+                            <button id="drag3" draggable="true" ondragstart="drag(event)" ><code>chance = 2</code></button>
+                            <button id="drag4" draggable="true" ondragstart="drag(event)" ><code>pass</code></button>
+                            <button id="drag5" draggable="true" ondragstart="drag(event)" ><code>while chance <= 3</code></button>
+                            <button id="drag6" draggable="true" ondragstart="drag(event)" ><code>while chance < 3:</code></button>
+                            <button id="drag7" draggable="true" ondragstart="drag(event)" ><code>while chance <= 3:</code></button>
+                        </div>
+                    </td>
+                
+                
+                    <td  style="padding-left: 10; vertical-align: top;">
+                        <b>ANSWER AREA</b><br><br>
+                        <pre><code>
+from random import randint
+target = randint(1,10)
+chance = 1
+print("Guess an integer from 1 to 10. You will have 3 chances.")
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    guess = int(input("Guess an integer: "))
+    if guess > target:
+        print("Guess is too high")
+    elif guess < target:
+        print("Guess is too low")
+    else:
+        print("Guess is just right!")
+        <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        </code></pre>
+                    </td>
+                </tr>
+
+            </table>    
+        </div>
+        <br><br><br>
+        <hr>
+        <p class="d-inline-flex gap-1">
+            <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
+            <a href="q38.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
+            <a href="q40.html" class="btn btn-success" role="button" > NEXT >></a>
+        </p>
+    </div>
+    <script src="answer-key.js"></script>
+    <script src="exam.js"></script>
+</body>
+</html>
