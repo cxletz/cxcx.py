@@ -1,6 +1,6 @@
 /**
  * Machine-readable answer key for exam.js (must match serialization order on each page).
- * Source: Python Questions and Answers.txt (project root). Drag-and-drop-only pages are null.
+ * Order per page: selects → radio groups → checkbox aggregate → text inputs → drag-drop (div1+).
  */
 (function () {
   window.EXAM_ANSWER_KEY = {
@@ -14,7 +14,7 @@
     q8: ["while", "break", "index += 1"],
     q9: ["if grade >= 90:", "elif grade >= 80:", "elif grade >= 70:", "elif grade >= 65:"],
     q10: ["2"],
-    q11: ["1", "0", "0"],
+    q11: ["0", "1", "0"],
     q12: ["if", "if", "elif", "elif", "and", "else:", "else:"],
     q13: ["0,3"],
     q14: ["3"],

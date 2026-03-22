@@ -169,14 +169,15 @@
 
   function serializeDragDrop(root) {
     var parts = [];
-    // Assume drop zones are div1, div2, div3, div4, div5
-    for (var i = 1; i <= 5; i++) {
-      var div = root.querySelector('#div' + i);
-      if (div) {
+    // Find all drop zones dynamically (div1, div2, div3, etc.)
+    var divs = root.querySelectorAll('[id^="div"]');
+    for (var i = 0; i < divs.length; i++) {
+      var div = divs[i];
+      // div0 is the code bank; /^div\d+$/ incorrectly matched it — skip so answers align with the key
+      if (div.id === "div0") continue;
+      if (div.id.match(/^div\d+$/)) {
         var button = div.querySelector('button');
         parts.push(button ? normalize(button.textContent) : "");
-      } else {
-        parts.push("");
       }
     }
     // Trim trailing empty strings
@@ -190,9 +191,12 @@
     var i = 0;
     var sourceDiv = root.querySelector('#div0');
     if (!sourceDiv) return;
-    for (var j = 1; j <= 5; j++) {
-      var div = root.querySelector('#div' + j);
-      if (div) {
+    // Find all drop zones dynamically (div1, div2, div3, etc.)
+    var divs = root.querySelectorAll('[id^="div"]');
+    for (var j = 0; j < divs.length; j++) {
+      var div = divs[j];
+      if (div.id === "div0") continue;
+      if (div.id.match(/^div\d+$/)) {
         // Clear existing content
         div.innerHTML = '';
         if (values[i]) {
@@ -205,8 +209,8 @@
             }
           }
         }
+        i++;
       }
-      i++;
     }
   }
 
@@ -262,7 +266,7 @@
     i += txtCount;
     applyTextInputs(root, txtVals);
 
-    var dragVals = values.slice(i, i + 5); // Assuming 5 drop zones
+    var dragVals = values.slice(i); // All remaining values are for drag-drop
     applyDragDrop(root, dragVals);
   }
 

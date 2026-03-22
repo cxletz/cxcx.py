@@ -15,37 +15,19 @@
           /* margin-right: 100px; */
           
         }
-        #div00 {
+
+        #div1, #div2, #div3, #div4, #div5, #div6, #div7 {
+          width: 100%;
+          min-height: 30px;
+          padding: 5px;
+          border: 1px solid #4a08ef;
+          margin-bottom: 5px;
+        }
+        #drag1, #drag2, #drag3, #drag4, #drag5, #drag6, #drag7 {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            display: block;
             width: 100%;
-          height: 350px;
-          padding: 9px;
-          border: 1px solid #4a08ef;
-          
-          /* float: left; */
-          /* margin-right: 100px; */
-          
-        }
-        #div1, #div2, #div3, #div4, #div5 {
-          width: 500px;
-          height: 400px;
-          padding-left: 5px;
-          border: 1px solid #4a08ef;
-          /* float: left; */
-          margin-right: 10px;
-        }
-        #drag1, #drag3{
-            width: 600px;
-            margin-top: 5px;
-            height: 50px;
-            border: thin solid black;
-            
-        } 
-        #drag2, #drag4, #drag5, #drag6, #drag7{
-            width: 600px;
-            margin-top: 5px;
-            height: 25px;
-            border: thin solid black;
-            
         } 
         </style>
     <script>
@@ -98,38 +80,26 @@
                         <b>CODE SEGMENTS</b><br><br>
                         <div id="div0" ondrop="drop(event)" ondragover="allowDrop(event)">
 
-                            <div id="drag1" draggable="true" ondragstart="drag(event)" >
-                                <pre><code>       if items[i] == term:
-          print("{0} was found in the list.".format(term))
-                                </code></pre>
-                            </div>
-                            <div id="drag2" draggable="true" ondragstart="drag(event)" >
-                                <pre><code>    for i in range(len(items)):</code></pre>
-                            </div>
-                            <div id="drag3" draggable="true" ondragstart="drag(event)" >
-                                <pre><code>       else:
-          print("{0} was not found in the list.".format(term))
-                                </code></pre>
-                            </div>
-                            <div id="drag4" draggable="true" ondragstart="drag(event)" >
-                                <pre><code> def search(items, term):</code></pre>
-                            </div>
-                            <div id="drag5" draggable="true" ondragstart="drag(event)" >
-                                <pre><code>          break</code></pre>
-                            </div>
+                            <button id="drag1" draggable="true" ondragstart="drag(event)" ><code>def search(items, term):</code></button>
+                            <button id="drag2" draggable="true" ondragstart="drag(event)" ><code>for i in range(len(items)):</code></button>
+                            <button id="drag3" draggable="true" ondragstart="drag(event)" ><code>if items[i] == term:</code></button>
+                            <button id="drag4" draggable="true" ondragstart="drag(event)" ><code>print("{0} was found in the list.".format(term))</code></button>
+                            <button id="drag5" draggable="true" ondragstart="drag(event)" ><code>break</code></button>
+                            <button id="drag6" draggable="true" ondragstart="drag(event)" ><code>else:</code></button>
+                            <button id="drag7" draggable="true" ondragstart="drag(event)" ><code>print("{0} was not found in the list.".format(term))</code></button>
                         </div>
                         </td>
                     <td width="100px"> </td>    
                 
                     <td  width="620px"  style="padding-left: 10px; vertical-align: top;">
                         <b>ANSWER AREA</b><br><br>
-                        <div id="div00" ondrop="drop(event)" ondragover="allowDrop(event)">
-                            
-                        </div>
-
-                       
-                        
-                        
+                        <pre><code><div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"></div></code></pre>
                     </td>
                 </tr>
 
