@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+         #div0 {
+        width: 100%;
+          height: 350px;
+          padding: 9px;
+          border: 1px solid #4a08ef;
+          /* float: left; */
+          /* margin-right: 100px; */
+          
+        }
+        #div1, #div2, #div3, #div4, #div5 {
+          width: 100%;
+          min-height: 30px;
+          padding: 5px;
+          border: 1px solid #4a08ef;
+          margin-bottom: 5px;
+        }
+        #drag1, #drag2, #drag3, #drag4, #drag5 {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            display: block;
+            width: 100%;
+        } 
+        </style>
+    <script>
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
+          saveCurrentPage();
+        }
+        </script>
+    <title>PYTHON</title>
+    <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+    <div style="margin: 50px;">
+        <div class="container-fluid">
+            
+            <p class="d-inline-flex gap-1"><b>QUESTION 29</b></p>
+            <br/>
+            <p class="d-inline-flex gap-1">
+                <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
+                <a href="q28.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
+                <a href="q30.html" class="btn btn-success" role="button" > NEXT >></a>
+             <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button></p>            <hr>
+<p>You are writing a function that works with files.</p>
+           <p>You need to ensure that the function return <code>None</code> if the file does not exist the function 
+            must return the first line.</p>
+            <p>You write the following code.</p>
+            <pre><code>import os
+def get_first_line(filename, mode):</code></pre>
+           <p>In which order should you arrange the code segments to complete the function? 
+            Move all the code segments to the answer area and place them in the correct order.
+           </p>
+            <hr>
+            <br>
+            <table>
+                <tr>
+                    <td width="400px" style="vertical-align: top">
+                        <b>CODE SEGMENTS</b><br><br>
+                        <div id="div0" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                            <button id="drag1" draggable="true" ondragstart="drag(event)" ><code>if os.path.isfile(filename):</code></button>
+                            <button id="drag2" draggable="true" ondragstart="drag(event)" ><code>with open(filename,'r') as file:</code></button>
+                            <button id="drag3" draggable="true" ondragstart="drag(event)" ><code>return file.readline()</code></button>
+                            <button id="drag4" draggable="true" ondragstart="drag(event)" ><code>else:</code></button>
+                            <button id="drag5" draggable="true" ondragstart="drag(event)" ><code>return None</code></button>
+                        </div>
+                        </td>
+                    <td width="100px"> </td>    
+                
+                    <td  width="400px"  style="padding-left: 10px; vertical-align: top;">
+                        <b>ANSWER AREA</b><br><br>
+                        <pre><code>import os
+def get_first_line(filename, mode):
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div></code></pre>
+                    </td>
+                </tr>
+
+            </table>    
+
+
+
+            
+        
+           
+
+            
+
+        </div>
+        <br><br><br>
+        <hr>
+        <p class="d-inline-flex gap-1">
+            <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
+            <a href="q28.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
+            <a href="q30.html" class="btn btn-success" role="button" > NEXT >></a>
+        </p>
+    </div>
+    <script src="answer-key.js"></script>
+    <script src="exam.js"></script>
+</body>
+</html>

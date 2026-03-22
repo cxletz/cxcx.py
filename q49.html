@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        code {
+            color: black;
+        }
+        td {
+            padding-left: 50px;
+        }
+      
+    </style>
+    <style>
+         #div0 {
+        width: 100%;
+          height: 150px;
+          padding: 9px;
+          border: 1px solid #4a08ef;
+          /* float: left; */
+          margin-right: 100px;
+          
+        }
+        #div1, #div2, #div3, #div4, #div5 {
+            width: 110px;
+          height: 40px;
+          padding-left: 5px;
+          border: 1px solid #4a08ef;
+          float: left;
+          margin-right: 5px;
+        }
+        #drag1, #drag2, #drag3, #drag4, #drag5, #drag6, #drag7{
+            width: 100px;
+            margin-top: 5px;
+        } 
+        </style>
+    <script>
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
+          saveCurrentPage();
+        }
+        </script>
+    <title>PYTHON</title>
+    <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+    <div style="margin: 50px;">
+        <div class="container-fluid">
+            
+            <p class="d-inline-flex gap-1"><b>QUESTION 49</b></p>
+            <br/>
+            <p class="d-inline-flex gap-1">
+                <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
+                <a href="q48.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
+                <a href="q50.html" class="btn btn-success" role="button" > NEXT >></a>
+             <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button></p>            <hr>
+<p>You need to identify the results of performing various slicing operations on the following sequence structure</p>
+           <p><code>alph = "abcdefghijklnnopqrstuvwxyz"</code></p>
+           <p>Move the appropriate results from the list on the left to the correct slicing operations
+            on the right. You may use each result once, morethan once, or not at all.
+           </p>
+           <p>Note: You will receive partial credit for each correct match.</p>
+            <hr>
+            <br>
+            <table>
+                <tr>
+                    <td width="400px" style="vertical-align: top">
+                        <b>CODE SEGMENTS</b><br><br>
+                        <div id="div0" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <button id="drag1" draggable="true" ondragstart="drag(event)" ><code>def</code></button>
+                            <button id="drag2" draggable="true" ondragstart="drag(event)" ><code>abcdef</code></button>
+                            <button id="drag3" draggable="true" ondragstart="drag(event)" ><code>cde</code></button>
+                            <button id="drag4" draggable="true" ondragstart="drag(event)" ><code>defg</code></button>
+                            <button id="drag5" draggable="true" ondragstart="drag(event)" ><code>cdef</code></button>
+                            <button id="drag6" draggable="true" ondragstart="drag(event)" ><code>abcde</code></button>
+                        </div>
+                        </td>
+                    <td  style="padding-left: 100px; vertical-align: top;">
+                        <b>ANSWER AREA</b><br><br>
+                        <table>
+                        <tr>
+                            <td><code>alph[3:6]</code></td>
+                            <td> <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+                        </tr>
+                        <tr>
+                            <td><code>alph[:6]</code></td>
+                            <td> <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+                        </tr>
+                        </table>
+                    </td>
+                </tr>
+
+            </table>    
+        </div>
+        <br><br><br>
+        <hr>
+        <p class="d-inline-flex gap-1">
+            <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
+            <a href="q48.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
+            <a href="q50.html" class="btn btn-success" role="button" > NEXT >></a>
+        </p>
+    </div>
+    <script src="answer-key.js"></script>
+    <script src="exam.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        code {
+            color: black;
+        }
+      
+    </style>
+    <style>
+         #div0 {
+        width: 320px;
+          height: 500px;
+          padding: 9px;
+          border: 1px solid #4a08ef;
+          /* float: left; */
+          margin-right: 100px;
+          
+        }
+        #div1, #div2, #div3, #div4, #div5 {
+            width: 320px;
+          height: 100px;
+          padding-left: 10px;
+          border: 1px solid #4a08ef;
+          /* float: left; */
+          display: inline-block;
+          margin-right: 5px;
+        }
+        #drag1, #drag2, #drag3, #drag4, #drag5, #drag6, #drag7{
+            width: 300px;
+            height: 90px;
+            margin-top: 5px;
+            text-align: left;
+            
+            
+            
+        } 
+        </style>
+    <script>
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
+          saveCurrentPage();
+        }
+        </script>
+    <title>PYTHON</title>
+    <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+    <div style="margin: 50px;">
+        <div class="container-fluid">
+            
+            <p class="d-inline-flex gap-1"><b>QUESTION 46</b></p>
+            <br/>
+            <p class="d-inline-flex gap-1">
+                <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
+                <a href="q45.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
+                <a href="q47.html" class="btn btn-success" role="button" > NEXT >></a>
+             <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button></p>            <hr>
+<p>You are building a Python program that displays all prime numbers from 2 to 100. (A prime numbers is any number
+                that is divisible only by itself and 1.)</p>
+            <p>Complete the code by moving the appropriate code segments from the list on the left to
+                the correct locations on the right.
+            </p>
+           <p>Note: You will receive partial credit for each correct code placement.</p>
+            <hr>
+            <br>
+            <table>
+                <tr>
+                    <td width="300px" style="vertical-align: top">
+                        <b>CODE SEGMENTS</b><br><br>
+                        <div id="div0" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <button id="drag1" draggable="true" ondragstart="drag(event)" ><pre><code>break
+                            </code></pre</button>
+                            <button id="drag2" draggable="true" ondragstart="drag(event)" ><pre><code>continue 
+                            </code></pre></button>
+                            <button id="drag3" draggable="true" ondragstart="drag(event)" ><pre><code>p = p + 1
+                            </code></pre></button>
+                            <button id="drag4" draggable="true" ondragstart="drag(event)" ><pre><code>p = 2
+is_prime = True
+while p <= 100: </code></pre></button>
+                            <button id="drag5" draggable="true" ondragstart="drag(event)" ><pre><code>p = 2
+while p <= 100:
+    is_prime = True</code></pre></button>
+                            
+                        </div>
+                    </td>
+                
+                
+                    <td  style="padding-left: 10; vertical-align: top;">
+                        <b>ANSWER AREA</b><br><br>
+                        <pre><code>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    for i in range(2, p):
+        if p % i == 0:
+            is_prime = False
+            <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    if is_prime == True:
+        print(p)
+    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        </code></pre>
+                    </td>
+                </tr>
+
+            </table>    
+        </div>
+        <br><br><br>
+        <hr>
+        <p class="d-inline-flex gap-1">
+            <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
+            <a href="q45.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
+            <a href="q47.html" class="btn btn-success" role="button" > NEXT >></a>
+        </p>
+    </div>
+    <script src="answer-key.js"></script>
+    <script src="exam.js"></script>
+</body>
+</html>

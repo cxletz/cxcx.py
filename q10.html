@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>PYTHON</title>
+    <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+    <div style="margin: 50px;">
+        <div class="container-fluid">
+            
+            <p class="d-inline-flex gap-1"><b>QUESTION 10</b></p>
+            <br/>
+            <p class="d-inline-flex gap-1">
+                <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
+                <a href="q9.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
+                <a href="q11.html" class="btn btn-success" role="button" > NEXT >></a>
+             <button type="button" id="exam-finish-btn" class="btn btn-danger">Finish Exam</button></p>            <hr>
+<div class="row" >
+                <div class="col-6">
+        You are writing a Python program to automate inventory. Your first task is to read a file of inventory transactions. The file contains sales from the previous day, including the item id, price, and quantity.
+        <br>The following shows a sample of data from the file:
+        <br><code>10, 200, 5</code>
+        <br><code>20, 100, 1</code>
+        <br>
+        <br>The code must meet the following requirements:
+        <ul>
+        <li>Each line of the file must be read and printed</li>
+        <li>If a blank line is encountered, it must be ignored</li>
+        <li>When all lines have been read, the file must be closed</li>
+        </ul>
+        <br>
+        You create the following code. Line numbers are included for reference only.
+
+
+
+            <pre>
+            <code>
+                01 inventory = open("inventory.txt", 'r')
+                02 eof = False
+                03 while eof == False:
+                04    line = inventory.readline()
+                05 
+                06
+                07       print(line)
+                08    else:
+                09       print ("End of file")
+                10       eof = True
+                11       inventory,close()
+            </code>
+            </pre>
+           
+            </div>
+            <div class="col-6">
+                Which code should you write for line 05 and line 06?
+                <br>
+                  <pre><code>
+                A.  <input type="radio" name="opt"></input>  05 if line != '\n':
+                        06    if line !="": 
+                B.  <input type="radio" name="opt"></input>  05 if line != '\n':
+                        06    if line != None:
+                C.  <input type="radio" name="opt"></input>  05 if line != '':
+                        06    if line != "\n":
+                D.  <input type="radio" name="opt"></input>  05 if line != '':
+                        06    if line != "":
+                    </code>
+                    </pre>
+                
+            </div>
+
+            <hr>
+            <p class="d-inline-flex gap-1">
+                <a href="main.html" class="btn btn-secondary" role="button" >LIST</a>
+                <a href="q9.html" class="btn btn-warning" role="button" ><< PREVIOUS</a>
+                <a href="q11.html" class="btn btn-success" role="button" > NEXT >></a>
+            </p>
+
+
+            </div>
+
+        </div>
+    </div>
+    <script src="answer-key.js"></script>
+    <script src="exam.js"></script>
+</body>
+</html>
