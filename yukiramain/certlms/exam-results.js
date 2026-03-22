@@ -51,6 +51,7 @@
     });
 
     html += "</tbody></table>";
+    html = '<div class="exam-results-table-wrapper">' + html + '</div>';
     panel.innerHTML = html;
   }
 

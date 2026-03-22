@@ -15,15 +15,33 @@
             width: auto;
             padding: 8px 20px;
         }
+
+        /* Mobile responsive styles */
+        @media (max-width: 767.98px) {
+            .main-container {
+                margin: 15px !important;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .button-container button,
+            .button-container a {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
     <title>PYTHON - Exam Results</title>
     <link rel="stylesheet" href="exam.css">
 </head>
 <body>
-    <div style="margin: 50px;">
+    <div style="margin: 50px;" class="main-container">
         <div class="container-fluid">
             <h2>ITS Certification: Python - Exam Results</h2>
-            <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-2 gap-sm-2 mb-3">
                 <a href="main.html" class="btn btn-success" role="button">Logout</a>
                 <button type="button" id="retake-btn-top" class="btn btn-warning">Retake Exam</button>
             </div>

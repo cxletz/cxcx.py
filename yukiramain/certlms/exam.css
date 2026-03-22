@@ -80,3 +80,41 @@
 .exam-retake-wrap {
   margin-top: 0.75rem;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 767.98px) {
+  .exam-results-panel {
+    padding: 0.75rem 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .exam-results-panel h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .exam-score-summary {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .exam-results-table {
+    font-size: 0.85rem;
+  }
+
+  .exam-results-table th,
+  .exam-results-table td {
+    padding: 0.35rem 0.4rem;
+  }
+
+  .exam-part-detail {
+    font-size: 0.8rem;
+  }
+
+  /* Make table horizontally scrollable on very small screens */
+  .exam-results-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
